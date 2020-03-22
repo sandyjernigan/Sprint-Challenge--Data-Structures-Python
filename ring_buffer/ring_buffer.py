@@ -28,6 +28,11 @@ class RingBuffer:
             self.current = self.storage.head
             list_buffer_contents.append(self.current.value)
 
+            # While there is another node, append the node to the list
+            while not self.current.next is None:
+                self.current = self.current.next
+                list_buffer_contents.append(self.current.value)
+
         return list_buffer_contents
 
 # ----------------Stretch Goal-------------------
