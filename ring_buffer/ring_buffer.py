@@ -9,6 +9,11 @@ class RingBuffer:
 
     ''' The `append` method adds elements to the buffer. '''
     def append(self, item):
+        # If at max capacity, remove oldest entry
+        if len(self.storage) == self.capacity:
+            # delete the head (oldest node)
+            self.storage.remove_from_head()
+            
         # Add item to the ring buffer
         self.storage.add_to_tail(item)
 
