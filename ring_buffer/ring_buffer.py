@@ -7,8 +7,10 @@ class RingBuffer:
         self.current = None
         self.storage = DoublyLinkedList()
 
+    ''' The `append` method adds elements to the buffer. '''
     def append(self, item):
-        pass
+        # Add item to the ring buffer
+        self.storage.add_to_tail(item)
 
     def get(self):
         # Note:  This is the only [] allowed
