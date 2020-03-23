@@ -68,6 +68,7 @@ class LinkedList:
       prevNode = curNode
       curNode = nextNode
     
+    # At the End change last to the head 
     self.head = prevNode 
 
   
