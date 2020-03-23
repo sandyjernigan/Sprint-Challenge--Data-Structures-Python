@@ -20,6 +20,17 @@ class LinkedList:
     # reference to the head of the list
     self.head = None
 
+  def __str__(self):
+    curNode = self.head
+    output = ''
+    output += f'( {curNode.value} )'
+
+    while curNode.next_node is not None:
+      curNode = curNode.next_node
+      output += f' -> ( {curNode.value} )'
+
+    return output
+
   def add_to_head(self, value):
     node = Node(value)
     if self.head is not None:
@@ -43,5 +54,36 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+    # if empty return None
+    if self.head is None:
+      return None
+
+    # Get Current head node
+    curNode = self.head
+    count = 1
+
+    # Iterate over list to get length
+    while curNode.next_node is not None:
+      curNode = curNode.next_node
+      count += 1
+
+    # Store previous head
+    previous = self.head
+    # This should be the last node, set this as the new head
+    self.head = curNode
+    # replace next node
+    curNode.set_next(previous.next_node)
+
+    
+    
+
+
+testList = LinkedList()
+
+testList.add_to_head(1)
+testList.add_to_head(2)
+testList.add_to_head(3)
+
+print(testList)
+
+testList.reverse_list()
