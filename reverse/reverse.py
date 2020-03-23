@@ -68,16 +68,6 @@ class LinkedList:
       prevNode = curNode
       curNode = nextNode
     
-    self.head = prevNode    
+    self.head = prevNode 
 
-
-testList = LinkedList()
-
-testList.add_to_head(1)
-testList.add_to_head(2)
-testList.add_to_head(3)
-
-print(testList)
-
-testList.reverse_list()
-print(testList)
+  
