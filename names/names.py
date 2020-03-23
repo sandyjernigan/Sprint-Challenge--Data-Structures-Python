@@ -18,26 +18,28 @@ duplicates = []  # Return the list of duplicates in this data structure
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
-# def difference(list1, list2):
-#     # map over each element (x) of combined list to determine if not in one of the lists
-#     listDiff = [x for x in list1 + list2 if x not in list1 or x not in list2]
-#     return listDiff
+def difference(list1, list2):
+    # map over each element (x) of combined list to determine if not in one of the lists
+    listDiff = [x for x in list1 + list2 if x not in list1 or x not in list2]
+    return listDiff
 
-# duplicates = difference(names_1, names_2)
+duplicates = difference(names_1, names_2)
 
-# end_time = time.time()
+end_time = time.time()
 # print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
-# print (f"runtime: {end_time - start_time} seconds")
+print (f"runtime: {end_time - start_time} seconds")
 
 # ---------- Stretch Goal -----------
 # Python has built-in tools that allow for a very efficient approach to this problem
 # What's the best time you can accomplish?  Thare are no restrictions on techniques or data
 # structures, but you may not import any additional libraries that you did not write yourself.
 
+start_time = time.time()
+
 names_1.sort()
 names_2.sort()
 duplicates = set(names_1).difference(set(names_2))
 
 end_time = time.time()
-print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+# print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
