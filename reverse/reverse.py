@@ -20,6 +20,17 @@ class LinkedList:
     # reference to the head of the list
     self.head = None
 
+  def __str__(self):
+    curNode = self.head
+    output = ''
+    output += f'( {curNode.value} )'
+
+    while curNode.next_node is not None:
+      curNode = curNode.next_node
+      output += f' -> ( {curNode.value} )'
+
+    return output
+
   def add_to_head(self, value):
     node = Node(value)
     if self.head is not None:
@@ -43,5 +54,21 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+    # Set previous node to None
+    prevNode = None
+    # Set current node to the head node
+    curNode = self.head
+
+    while(curNode is not None):
+      # store next Node
+      nextNode = curNode.next_node
+      # change next of current node
+      curNode.set_next(prevNode)
+      # move forward
+      prevNode = curNode
+      curNode = nextNode
+    
+    # At the End change last to the head 
+    self.head = prevNode 
+
+  
